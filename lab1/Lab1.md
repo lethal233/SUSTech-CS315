@@ -10,13 +10,13 @@
 
    From the official help we get **black** also means `HSRP state change`, `Spanning Tree topology change`, `OSPF state change`, `ICMP errors` and `checksum errors`.
 
-   <img src="C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab1\pictures\image-20200914104257246.png" alt="image-20200914104257246" style="zoom:80%;" />
+   <img src="./pictures/image-20200914104257246.png" alt="image-20200914104257246" style="zoom:80%;" />
 
    
 
 3. http.request && ip.src == `my ip address`, here my ip address is 10.21.110.142.
 
-   ![image-20200914113155557](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab1\pictures\image-20200914113155557.png)
+   ![image-20200914113155557](./pictures/image-20200914113155557.png)
 
 4. 
 
@@ -44,5 +44,5 @@
 
 
 
-![IMG_2811](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab1\pictures\IMG_2811.JPG)
+![IMG_2811](./pictures/IMG_2811.JPG)
 

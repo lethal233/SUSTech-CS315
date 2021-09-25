@@ -59,14 +59,14 @@ The false alarm rate is `5%`.
 
 I add this rule,`alert tcp any any -> 208.82.237.129 any (msg:"TCP Packet to Craigslist.org found - Shilong"; sid:1000005;rev:1;)`, into the `local.rules`. 
 
-![image-20201102201628057](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab7\pictures\image-20201102201628057.png)
+![image-20201102201628057](./pictures/image-20201102201628057.png)
 
 ### b
 
 I open the firefox explorer to visit `craigslist.org`.
 
-![image-20201102202027637](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab7\pictures\image-20201102202027637.png)
+![image-20201102202027637](./pictures/image-20201102202027637.png)
 
 ### c
 
-![image-20201102202428208](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab7\pictures\image-20201102202428208.png)
+![image-20201102202428208](./pictures/image-20201102202428208.png)

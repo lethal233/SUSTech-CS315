@@ -38,11 +38,11 @@ Some versions doesn't have non-executable stack since code execution, DoS, and m
 
 It doesn't have ASLR, for justification, I run the program twice and get the same `buffer` address. It means it doesn't have ASLR.
 
-![image-20201109113524014](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109113524014.png)
+![image-20201109113524014](./pictures/image-20201109113524014.png)
 
 
 
-<img src="C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109113557543.png" alt="image-20201109113557543" style="zoom:80%;" />
+<img src="./pictures/image-20201109113557543.png" alt="image-20201109113557543" style="zoom:80%;" />
 
 I have run it for 2 times, and every time it is `0x00103172`, so it doesn't have ASLR.
 
@@ -54,11 +54,11 @@ Buffer overflow works, which is shown in the question 3.
 
 I modify the `main.c` to this:
 
-![image-20201109104418157](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109104418157.png)
+![image-20201109104418157](./pictures/image-20201109104418157.png)
 
 And the `EIP` shows that I have succeeded, which is `0xdeadbeef`. 
 
-![image-20201109104323645](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109104323645.png)
+![image-20201109104323645](./pictures/image-20201109104323645.png)
 
 
 
@@ -97,11 +97,11 @@ Opening /root/Desktop/admin123.cap`
 
 From the picture we see that the 1 handshake.
 
-![image-20201109031051708](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109031051708.png)
+![image-20201109031051708](./pictures/image-20201109031051708.png)
 
 And choosing the WiFi that we want to crack:
 
-![image-20201109031112453](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109031112453.png)
+![image-20201109031112453](./pictures/image-20201109031112453.png)
 
 We can get the `KEY FOUND ` message, where we can see the password.
 
@@ -112,11 +112,11 @@ Then I change my password to `lslnb123`, which is not on the list, and repeat do
 `aircrack-ng -w /usr/share/wordlists/fern-wifi/common.txt ~/Desktop/admin123.cap 
 Opening /root/Desktop/lslnb123.cap`
 
-![image-20201109031209982](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109031209982.png)
+![image-20201109031209982](./pictures/image-20201109031209982.png)
 
 
 
-![image-20201109031235458](C:\Users\Lori\Desktop\Course\ComputerScience\CS315\lab6\pictures\image-20201109031235458.png)
+![image-20201109031235458](./pictures/image-20201109031235458.png)
 
 Then the `aircrack-ng` fails to crack the WiFi.
 
